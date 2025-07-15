@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Interactivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calendar-container {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+        .calendar-header button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .day-name, .day {
+            padding: 10px;
+            text-align: center;
+        }
+        .day-name {
+            font-weight: bold;
+            background: #ddd;
+            border-radius: 5px;
+        }
+        .day {
+            background: #f9f9f9;
+            border-radius: 5px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .day.disabled {
+            color: #ccc;
+        }
+        .event {
+            background: #4786ff;
+            color: white;
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button onclick="prevMonth()">&#9665;</button>
+            <h2 id="monthYear">Marzo 2025</h2>
+            <button onclick="nextMonth()">&#9655;</button>
+        </div>
+        <div class="calendar" id="calendar"></div>
+    </div>
+
+    <script>
+        const daysOfWeek = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+        let currentDate = new Date();
+
+        function renderCalendar() {
+            const calendar = document.getElementById("calendar");
+            const monthYear = document.getElementById("monthYear");
+            calendar.innerHTML = "";
+
+            let year = currentDate.getFullYear();
+            let month = currentDate.getMonth();
+            let firstDay = new Date(year, month, 1).getDay();
+            let lastDate = new Date(year, month + 1, 0).getDate();
+            let prevLastDate = new Date(year, month, 0).getDate();
+            
+            monthYear.innerText = `${currentDate.toLocaleString('es-ES', { month: 'long' })} ${year}`;
+
+            daysOfWeek.forEach(day => {
+                const dayElement = document.createElement("div");
+                dayElement.classList.add("day-name");
+                dayElement.innerText = day;
+                calendar.appendChild(dayElement);
+            });
+
+            for (let i = firstDay; i > 0; i--) {
+                const dayElement = document.createElement("div");
+                dayElement.classList.add("day", "disabled");
+                dayElement.innerText = prevLastDate - i + 1;
+                calendar.appendChild(dayElement);
+            }
+
+            for (let i = 1; i <= lastDate; i++) {
+                const dayElement = document.createElement("div");
+                dayElement.classList.add("day");
+                dayElement.innerText = i;
+
+                if (i === 15) {
+                    let event = document.createElement("div");
+                    event.classList.add("event");
+                    event.innerText = "Día de Revisión";
+                    dayElement.appendChild(event);
+                }
+                
+                calendar.appendChild(dayElement);
+            }
+        }
+
+        function prevMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
+
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
+
+        renderCalendar();
+    </script>
+</body>
+</html>

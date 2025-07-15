@@ -1,0 +1,928 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700');
+
+/* Variables de colores */
+:root {
+    --primary-color: #FE654F;
+    --secondary-color: #D6EFFF;
+    --header-color: #007bff; /* Azul fuerte */
+    --text-color: #333333;
+    --white: #ffffff;
+    --black: #000000;
+    --border-color: #cbcbcb;
+    --background-light: linear-gradient(to right, #ffafbd, #ffc3a0); /* Degradado suave */
+    --background-dark: #1e1e1e;
+}
+
+/* Configuración general */
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--text-color);
+    background: var(--background-light);
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Encabezado */
+.header__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-color);
+    z-index: 100;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75em;
+}
+
+/* Título */
+.header__title {
+    color: var(--white);
+    font-size: 1.8em;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+/* Botones en el header */
+.header__button {
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 50%;
+    background-color: #004494;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.5em;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.header__button:hover {
+    background-color: #003366;
+}
+
+/* Botón modo oscuro */
+.dark-mode-toggle {
+    background-color: #222;
+    font-size: 1.5em;
+    position: absolute;
+    left: 1em; /* Lo mueve a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background: var(--background-dark);
+    color: white;
+}
+
+body.dark-mode .header__container {
+    background-color: #222;
+}
+
+body.dark-mode .header__title {
+    color: white;
+}
+
+body.dark-mode .header__button {
+    background-color: #444;
+}
+
+body.dark-mode .note__container {
+    background: #333;
+    color: white;
+}
+
+
+/* Contenedor principal */
+.main {
+    margin-top: 5em;
+    padding: 1em;
+}
+
+/* Contenedor de notas */
+.notes {
+    max-width: 90em;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+/* Diseño de las notas */
+.note__container {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    position: relative;
+    width: 300px;
+    min-height: 100px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.note__container:hover {
+    transform: scale(1.03);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Encabezado de la nota */
+.note__header {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+/* Botón de eliminar */
+.note__delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.note__delete:hover {
+    background: darken(var(--primary-color), 10%);
+}
+
+/* Área editable */
+.note__content {
+    margin-top: 10px;
+    min-height: 50px;
+    outline: none;
+}
+
+/* Estilos para el botón de modo oscuro */
+body.dark-mode {
+    background: var(--background-dark);
+    color: white;
+}
+
+body.dark-mode .header__container {
+    background-color: #222;
+}
+
+body.dark-mode .header__title {
+    color: white;
+}
+
+body.dark-mode .header__button {
+    background-color: #444;
+}
+
+body.dark-mode .note__container {
+    background: #333;
+    color: white;
+}
+
+/* --- NUEVOS ESTILOS PARA CAMBIAR EL COLOR DE LAS NOTAS --- */
+
+.color-picker {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em;
+    gap: 5px;
+}
+
+.color-option {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.color-option:hover {
+    transform: scale(1.2);
+}
+
+/* Transición de color en notas */
+.note__container {
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Contenedor del header */
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+    gap: 15px; /* Espaciado uniforme */
+}
+
+/* Estilos para la barra de búsqueda */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 200px; /* Ajuste del tamaño */
+    max-width: 250px;
+    height: 36px;
+    background: var(--white);
+    border-radius: 18px;
+    padding: 5px 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+/* Icono de búsqueda dentro del input */
+.search-icon {
+    font-size: 18px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Ajustes para el botón de modo oscuro */
+.dark-mode-toggle {
+    position: relative;
+    left: 0;
+}
+
+/* Ajustes para el botón de añadir */
+#btnAdd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    background-color: #004494;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+#btnAdd:hover {
+    background-color: #003366;
+}
+
+
+/* Ajuste del botón de modo oscuro */
+/* Ajuste del botón de modo oscuro */
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background 0.3s;
+    position: relative;
+    top: 20px; /* 🔥 Baja un poco el icono */
+    margin-left: 10px; /* Espacio desde el borde izquierdo */
+}
+
+
+/* Ajuste para centrar en la barra */
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+}
+/* 🔥 Estilos para el icono del calendario 📆 */
+
+
+
+/* 🔥 Estilos para el botón del calendario 📆 */
+.calendar-button {
+    font-size: 1.5em;
+    background-color: #222;
+    color: white;
+    border-radius: 50%;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+/* Cambio de color cuando pasas el mouse */
+.calendar-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Si está en modo oscuro, se mantiene */
+body.dark-mode .calendar-button {
+    background-color: #444;
+}
+
+
+/* 🔥 Estilos para el fondo del calendario */
+.calendar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Contenedor del calendario */
+.calendar-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Mostrar el calendario cuando se activa */
+.calendar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Botón para cerrar */
+#closeCalendar {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeCalendar:hover {
+    background: #0056b3;
+}
+
+
+
+/* 🎨 Mejorar la visibilidad del calendario */
+.calendar-container {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    width: 480px;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Mostrar el calendario cuando esté activo */
+.calendar-container.active {
+    display: block;
+}
+
+/* Estilizar el selector de fecha */
+#datePicker {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Botón de agregar evento */
+#addEvent {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#addEvent:hover {
+    background: #0056b3;
+}
+
+/* Cerrar calendario */
+#closeCalendar {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#closeCalendar:hover {
+    background: darkred;
+}
+
+/* Lista de eventos */
+#eventList {
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: left;
+}
+
+/* Color de los botones */
+.delete-event {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+/* 🎨 Estilos para el calendario emergente */
+.calendar-container {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Mostrar el calendario cuando esté activo */
+.calendar-container.active {
+    display: block;
+}
+
+/* Estilo del selector de fecha */
+#datePicker {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Botones */
+#addEvent, #closeCalendar {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    margin-top: 10px;
+}
+
+#closeCalendar {
+    background: red;
+}
+
+#addEvent:hover {
+    background: #0056b3;
+}
+
+#closeCalendar:hover {
+    background: darkred;
+}
+
+
+/* 📅 Estilos para el calendario */
+.calendar-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Cuando está activo, se muestra */
+.calendar-container.active {
+    display: block;
+}
+
+
+
+
+/* Variables de colores */
+:root {
+    --primary-color: #FE654F;
+    --secondary-color: #D6EFFF;
+    --header-color: #007bff;
+    --text-color: #333;
+    --white: #ffffff;
+    --black: #000000;
+    --border-color: #cbcbcb;
+    --background-light: linear-gradient(to right, #ffafbd, #ffc3a0);
+    --background-dark: #1e1e1e;
+}
+
+/* Configuración general */
+body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--background-light);
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Contenedor del calendario */
+.calendar-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Cuando está activo, se muestra */
+.calendar-container.active {
+    display: block;
+}
+
+/* Botones */
+#addEvent, #closeCalendar {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    margin-top: 10px;
+}
+
+#closeCalendar {
+    background: red;
+}
+
+#addEvent:hover {
+    background: #0056b3;
+}
+
+#closeCalendar:hover {
+    background: darkred;
+}
+
+
+/* 🔥 Estilos para el botón de eliminar evento */
+.delete-event {
+    background: transparent;
+    color: red;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.delete-event:hover {
+    transform: scale(1.3);
+}
+
+
+
+/* Estilo para el contenedor del filtro */
+.filter-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Icono del filtro (profesional 📂) */
+.filter-icon {
+    font-size: 20px;
+    margin-right: 8px;
+    color: #2c3e50;
+}
+
+/* Selector de categoría con estilo profesional */
+.filter-dropdown {
+    border: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-dropdown:hover {
+    background-color: #e0e0e0;
+}
+
+/* Mejorando la apariencia cuando se selecciona */
+.filter-dropdown:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Estilos para el botón de agregar (+) */
+#btnAdd {
+    position: fixed;
+    bottom: 240px;  /* Distancia desde la parte inferior */
+    right: 50px;   /* Distancia desde la derecha */
+    width: 60px;
+    height: 60px;
+    background-color: #0056b3;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+/* Efecto al pasar el mouse */
+#btnAdd:hover {
+    background-color: #00408a;
+    transform: scale(1.1);
+}
+
+/* Estilos para el selector de categorías */
+.category-select {
+    width: 100%;
+    max-width: 180px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #0056b3;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    font-weight: bold;
+    outline: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto cuando el usuario pasa el mouse */
+.category-select:hover {
+    border-color: #00408a;
+}
+
+/* Efecto cuando el usuario selecciona */
+.category-select:focus {
+    border-color: #003366;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Personalización de las opciones dentro del select */
+.category-select option {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 8px;
+    background: #f8f9fa;
+    color: #333;
+}
+.note__lock {
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: #666;
+}
+
+.note__lock:hover {
+    color: #000;
+}
+
+
+.floating-buttons {
+    position: fixed;
+    bottom: 180px;
+    right: 48px;
+    display: flex;
+    flex-direction: column; /* Alinea los botones en columna */
+    gap: 15px; /* Espacio entre botones */
+    align-items: center;
+}
+
+.floating-button {
+    background-color: #005eff;
+    color: white;
+    border: none;
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.floating-button:hover {
+    background-color: #0044cc;
+}
+
+#btnAddImage {
+    background-color: #ffb300;
+    transition: transform 0.2s ease-in-out;
+}
+
+#btnAddImage:hover {
+    transform: scale(1.2); /* Agranda el botón un 20% */
+    background-color: #ff9200;
+}
+
+.note__color-options {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    padding-right: 8px;
+}
+
+.color-circle {
+    width: 16px;
+    height: 16px;
+    margin: 0 4px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.color-circle:hover {
+    transform: scale(1.2);
+}
+.note__title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre la fecha y la lista de categorías */
+}
+
+.note__title {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.note__category-select {
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+
+
+.floating-image-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: auto;
+    cursor: grab;
+    z-index: 1000;
+    display: inline-block;
+    resize: both;
+    overflow: hidden;
+}
+
+.floating-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.resize-handle {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    cursor: nwse-resize;
+}
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: rgba(17, 19, 26, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.notification header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.notification .content {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.notification .timestamp {
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.calendar-icon {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #007bff;
+  color: white;
+  font-size: 24px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+

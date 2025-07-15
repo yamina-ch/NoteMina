@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="app">
+        <header class="header__container">
+            <div class="header__content">
+                <a id="btnDarkMode" class="header__button dark-mode-toggle" href="#">🌙</a>
+                <a id="btnCalendar" class="header__button calendar-button">📆</a>
+                <h1 class="header__title">Notes</h1>
+                
+                <!-- 🔍 Barra de búsqueda -->
+                <div class="search-container">
+                    <input type="text" id="searchBar" class="search-bar" placeholder="Buscar notas...">
+                    <span class="search-icon">🔍</span>
+                </div>
+
+                <!-- 📂 Selector de categorías -->
+                <!-- Agregado en el encabezado -->
+                <div class="filter-container">
+                    <span class="filter-icon">📂</span>
+                    <select id="filterCategory" class="filter-dropdown">
+                        <option value="Todas">Todas las categorías</option>
+                       <option value="Trabajo">📝 Trabajo</option>
+                        <option value="Personal">🏡 Personal</option>
+                        <option value="Importante">⚠️ Importante</option>
+                        <option value="Urgente">🔥 Urgente</option>
+                    </select>
+               <div class="floating-buttons">
+    <button id="btnAdd" class="floating-button">➕</button>
+    <button id="btnAddImage" class="floating-button">📷</button>
+</div>
+
+        </header>
+
+        <main id="main" class="main">
+            <div class="notes" id="notes"></div>
+             
+        </main>
+
+        <!-- 📅 Contenedor del Calendario -->
+        <div id="calendarContainer" class="calendar-container">
+            <h2>Selecciona una fecha y hora</h2>
+            <input type="date" id="datePicker">
+            <input type="time" id="timePicker">
+            <label for="eventNote">Nota del evento:</label>
+            <textarea id="eventNote" placeholder="Escribe una nota para este evento"></textarea>
+            <button id="addEvent">Agregar Evento</button>
+
+            <button id="closeCalendar">Cerrar</button>
+            <a href="calendario.html" id="btnShowCalendar" class="calendar-icon">📅</a>
+
+            
+
+            <div id="eventsList"></div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+/* Asegurar que el cuerpo y el HTML ocupen toda la pantalla */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #f5f7fa;
+    font-family: Montserrat, sans-serif;
+    color: #51565d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor Principal */
+.calendar-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Encabezado */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    border-bottom: 2px solid #ddd;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Botón de volver */
+.calendar-header a {
+    text-decoration: none;
+    color: #4786ff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Estructura del Calendario */
+.calendar {
+    flex-grow: 1;
+    display: grid;
+    width: 100%;
+    height: calc(100vh - 80px);
+    grid-template-columns: 100px repeat(7, 1fr);
+    grid-template-rows: 50px repeat(12, 1fr);
+    gap: 1px;
+    background: #eaeff5;
+}
+
+/* Columna de Horas */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border-right: 2px solid #ddd;
+    font-weight: bold;
+}
+
+.time-marker {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Días del calendario */
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos de cada día */
+.day {
+    background: #eef6fb;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    min-height: 60px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+}
+
+/* Cabecera de cada día */
+.date-header {
+    background: #dbeeff;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+/* Eventos dentro del calendario */
+.event {
+    background: #ffd6d1;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 12px;
+    word-wrap: break-word;
+    text-align: left;
+    width: 90%;
+}
+
