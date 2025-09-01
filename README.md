@@ -59,7 +59,7 @@ Permite crear, buscar y organizar notas por categorías en una interfaz limpia y
 ---
 
 ## 📄 Licencia
-Uso educativo/demostrativo. Adapta o extiende libremente según tus necesidades.
+yaminachbusiness@gmail.com
 
 ---
 
