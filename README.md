@@ -4,6 +4,7 @@ Pequeña app web de notas hecha con **HTML + CSS + JavaScript** (vanilla).
 Permite crear, buscar y organizar notas por categorías en una interfaz limpia y responsive.
 
 **🔗 Demo:** https://vermillion-praline-704a7c.netlify.app/
+
 **🔗 codepen:** https://codepen.io/minay-ch/pen/QwjJpmY
 
 
