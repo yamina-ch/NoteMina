@@ -45,8 +45,9 @@ Permite crear, buscar y organizar notas por categorías en una interfaz limpia y
 ---
 
 ## 📸 Vista previa
-![Captura de pantalla de Notes](https://vermillion-praline-704a7c.netlify.app/icon-192.png)
-*(La imagen es representativa; visita la demo para ver la interfaz completa).*
+![Captura de pantalla de Notes](
+<img width="2550" height="1104" alt="imagen" src="https://github.com/user-attachments/assets/9e236b26-9a0b-4dfa-b82d-0ac2f3ecf70f" />
+
 
 ---
 
