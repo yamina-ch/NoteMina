@@ -40,9 +40,7 @@ Permite crear, buscar y organizar notas por categorías en una interfaz limpia y
 
 ---
 
-## 🚀 Deploy rápido
-- Arrastra la carpeta del proyecto a **Netlify Drop**: https://app.netlify.com/drop  
-  (también puedes usar GitHub Pages, Vercel o Surge).
+
 
 ---
 
@@ -67,6 +65,8 @@ Uso educativo/demostrativo. Adapta o extiende libremente según tus necesidades.
 ## 📢 ¿Te gustó esta demo?
 También he creado una **aplicación de notas para Android**: **NoteMina**  
 👉 **Descárgala en Google Play:** https://play.google.com/store/apps/details?id=com.notemina.app
+
+## 📸 Vista previa
 
 <img width="608" height="1360" alt="imagen" src="https://github.com/user-attachments/assets/e92068ef-6b82-4470-8d8e-c4a6f864be63" />  
 <img width="606" height="1140" alt="imagen" src="https://github.com/user-attachments/assets/85191197-6313-4003-8744-800010e0725d" />
