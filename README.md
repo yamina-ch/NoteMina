@@ -67,6 +67,25 @@ yaminachbusiness@gmail.com
 También he creado una **aplicación de notas para Android**: **NoteMina**  
 👉 **Descárgala en Google Play:** https://play.google.com/store/apps/details?id=com.notemina.app
 
+
+NoteMina es una app sencilla y rápida para organizar tus ideas, tareas y recordatorios. Crea notas en segundos, clasifícalas por categoría y resalta lo urgente para no olvidarlo.
+
+Funciones principales
+• Búsqueda por contenido.
+• Filtros por categoría (Todas, Trabajo, Personal, Otros…) y solo urgentes.
+• Vista lista o cuadrícula.
+• Modo claro/oscuro.
+• Colores para tus notas.
+• Fijar (pin) notas importantes.
+• Bloqueo con contraseña por nota.
+• Archivo y Papelera con restauración.
+• Lista de tareas integrada.
+• Interfaz cuidada y muy fácil de usar.
+• Calendario ,eventos y tareas.
+
+Próximas mejoras
+– Más categorías personalizadas, widgets y copias de seguridad.
+
 ## 📸 Vista previa
 
 <img width="608" height="1360" alt="imagen" src="https://github.com/user-attachments/assets/e92068ef-6b82-4470-8d8e-c4a6f864be63" />  
