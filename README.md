@@ -70,6 +70,7 @@ yaminachbusiness@gmail.com
 ## 📢 ¿Te gustó esta demo?
 También he creado una **aplicación de notas para Android**: **NoteMina**  
 👉 **Descárgala en Google Play:** https://play.google.com/store/apps/details?id=com.notemina.app
+landing web site : https://notemina.netlify.app/
 
 
 NoteMina es una app sencilla y rápida para organizar tus ideas, tareas y recordatorios. Crea notas en segundos, clasifícalas por categoría y resalta lo urgente para no olvidarlo.
